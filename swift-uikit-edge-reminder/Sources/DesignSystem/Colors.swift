@@ -18,6 +18,7 @@ public enum Colors {
     enum Red {
         static let light = UIColor(hex: "#FDEDED")
         static let base = UIColor(hex: "#F94144")
+        static let dark = UIColor(hex: "#991b1b")
     }
 
     enum Gray {
