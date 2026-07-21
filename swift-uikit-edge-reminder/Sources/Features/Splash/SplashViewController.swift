@@ -9,18 +9,40 @@ import Foundation
 import UIKit
 
 class SplashViewController: UIViewController {
-    
+
     let contentView = SplashView()
-    
+
+    private let loginBottomSheetDelay: TimeInterval = 2
+    private var hasPresentedLoginBottomSheet = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setup()
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard !hasPresentedLoginBottomSheet else { return }
+        hasPresentedLoginBottomSheet = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + loginBottomSheetDelay) { [weak self] in
+            self?.presentLoginBottomSheet()
+        }
+    }
+
     private func setup(){
         self.view.addSubview(contentView)
+ 
+        
         setupConstraints()
+    }
+
+    private func presentLoginBottomSheet(){
+        let loginBottomSheetViewController = LoginBottonSheetViewController()
+        loginBottomSheetViewController.modalPresentationStyle = .overFullScreen
+        present(loginBottomSheetViewController, animated: false)
     }
     
     private func setupConstraints(){
