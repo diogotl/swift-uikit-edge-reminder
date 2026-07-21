@@ -37,7 +37,7 @@ class SplashView: UIView {
     }
 
     private func setupUI() {
-        self.backgroundColor = Colors.Red.base
+        self.backgroundColor = Colors.Red.dark
         addSubview(logoImg)
         addSubview(subtitleLabel)
         
