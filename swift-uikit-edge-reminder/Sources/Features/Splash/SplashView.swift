@@ -20,7 +20,7 @@ class SplashView: UIView {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Reminder"
+        label.text = String(localized: "Reminder")
         label.font = .boldSystemFont(ofSize: 48)
         label.textColor = Colors.Gray.g100
         label.translatesAutoresizingMaskIntoConstraints = false
